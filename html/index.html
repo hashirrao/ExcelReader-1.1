@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Excel Reader</title>
+    <link rel="stylesheet" href="../assets/css/frame.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/table.css">
+</head>
+<body>
+    <div class="mainBox">
+        <div class="topBox">
+                <button class="cmmbuttons" id="closebutton" onclick="closebutton()"></button>
+                <button class="cmmbuttons" id="minimizebutton" onclick="minimizeButton()"></button>
+            </div>
+        <div id="optionspanel">
+                <button class="optionbuttons" id="addfilebutton" onclick="addfilebuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-add-file-52.png" /></button>
+                <button class="optionbuttons hiddenbuttons" id="deletebutton" onclick="deletebuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-waste-52.png" /></button>
+                <button class="optionbuttons hiddenbuttons" id="savebutton" onclick="savebuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-save-52.png" /></button>
+                <button class="optionbuttons hiddenbuttons" id="editbutton" onclick="editbuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-edit-property-52.png" /></button>
+                <button class="optionbuttons hiddenbuttons" id="filterbutton" onclick="filterbuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-conversion-52.png" /></button>
+                <button class="optionbuttons hiddenbuttons" id="exportbutton" onclick="exportbuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-export-52.png" /></button>
+                <button class="squarebuttons" id="settingsbutton" onclick="settingsbuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-settings-52.png" /></button>
+                <button class="squarebuttons" id="optionbutton" onclick="optionbuttonclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-more-52.png" /></button>
+                <select id="sheetnames" class="hiddenbuttons"></select>
+            </div>
+        <div id="tableDiv">
+            <table id="table">
+                <thead class="headtable" id="sheetheadtable"></thead>
+                
+                <tbody id="sheettable"></tbody>
+                
+            </table>
+        </div>
+        <div id="statuspanel">
+            <table id="statuspaneltable">
+                <tr id="statuspaneltablerow">
+                    <td>
+                        <label class="titlelabels">Rows: </label>
+                    </td>
+                    <td>
+                        <label class="valuelabels" id="rowscountlabel"></label>
+                    </td>
+                    <td>
+                        <label class="commalabels">, </label>
+                    </td>
+                    <td>
+                        <label class="titlelabels">Columns: </label>
+                    </td>
+                    <td>
+                        <label class="valuelabels" id="columnscountlabel"></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="exportpanel">
+        <button class="closebutton" id="exportpanelclosebutton" onclick="exportpanelclosebutton()"></button>
+        <label class="titlelabels">Please select an option...</label><br><br>
+        <button id="wholefileexport" class="buttons" onclick="wholefileexportbuttonclick()">Export Whole File</button>
+        <button id="sheetexport" class="buttons" style="float: right;" onclick="sheetexportbuttonclick()">Export Current Sheet</button>
+    </div>
+    <div id="editcolumnpanel">
+        <button class="closebutton" id="editpanelclosebutton" onclick="editpanelclosebutton()"></button>
+        <label style="margin: 10px 0 0 2px" class="titlelabels"> Find: </label><br>
+        <input id="editcolumnfindvalue" style="width:98%"><br>
+        <label style="margin: 10px 0 0 2px" class="titlelabels"> Replace: </label><br>
+        <input id="editcolumnreplacevalue" style="width:98%"><br>
+        <label style="margin: 10px 0 0 2px" class="titlelabels"> Text Index Range: </label><br>
+        <input id="editcolumnindexrangefrom" placeholder="Optional" type="number" style="width:40%">
+        <label class="commalabels">to</label>
+        <input id="editcolumnindexrangeto" placeholder="Optional" type="number" style="width:40%"><br>
+        <label style="margin: 10px 0 0 2px" class="titlelabels"> Select Column: </label>
+        <select style="margin-top: 5px; width: 30%;" id="editcolumnspanelcolumnsnumber">
+
+        </select><br>
+        <!-- <button style="margin-top: 5px" class="buttons" id="editcolumnsreplacebutton" onclick="editcolumnsreplacebuttonclick()">Replace</button> -->
+        <button style="margin-top: 5px; float: right;" class="buttons" id="editcolumnsreplaceallbutton" onclick="editcolumnsreplaceallbuttonclick()">Replace</button>
+    </div>
+    <div id="filterPanel">
+        <div id="filteroptionsDiv">
+            <button class="closebutton" id="filterpanelclosebutton" onclick="filterpanelclosebutton()"></button>
+            <input id="filterinput" onkeydown="filterinputkeydown(event)" placeholder="Filter"/>
+            <label>By: </label>
+            <select id="methodselect" onchange="filtertable()">
+                <option value="method_1">Method 1</option>
+                <option value="method_2">Method 2</option>
+            </select>
+            <button class="optionbuttons" id="exportbuttonfilter" onclick="exportbuttonfilterclick()"><img width="20px" height="20px" src="../assets/icons/images/icons8-export-52.png" /></button>
+        </div>
+        <div id="filtertableDiv">
+            <table id="filtertable"></table>
+        </div>
+    </div>
+    <div id="updatecellpanel">
+        <button class="closebutton" id="updatecellpanelclosebutton" onclick="updatecellpanelclosebutton()"></button>
+        <label class="titlelabels" id="cellindextitlelabel"> Cell Index: </label>
+        <label class="valuelabels" id="rowindexlabel"></label>
+        <label class="commalabels">,</label>
+        <label class="valuelabels" id="cellindexlabel"></label>
+        <input id="updatecellinput" />
+        <button class="buttons" onclick="updatecell()">Update</button>
+    </div>
+    <div id="updaterowpanel">
+        <button class="closebutton" id="updaterowpanelclosebutton" onclick="updaterowpanelclosebutton()"></button>
+        <label id="cellindextitlelabel"> Row Index: </label>
+        <label id="rowindexlabelrow"></label>
+        <button class="buttons" onclick="updaterow()">Update</button>
+    </div>
+
+    <div id="deleteconfirmationpanel">
+        <label id="msglbl">Are you sure to delete selected rows...?</label><br><br>
+        <button id="deleteconfirmboxyesbutton" class="buttons" onclick="deleteconfirmyesbuttonclick()">Yes</button>
+        <button id="deleteconfirmboxnobutton" class="buttons" onclick="deleteconfirmnobuttonclick()">No</button>
+    </div>
+
+    <div id="optionspanelfront">
+        <button class="closebutton" id="optionspanelforntclosebutton" onclick="optionspanelforntclosebutton()"></button>
+        <table style="width: 100%;">
+            <tr style="background: rgb(189, 77, 77); font-size: 20px;">
+                <th><strong style="margin: 10px 0 0 2px" > Description </strong></th>
+                <th><strong style="margin: 10px 0 0 2px" > Index </strong></th>
+                <th><strong style="margin: 10px 0 0 2px" > Action </strong></th>
+            </tr>
+            <tr>
+                <td><label style="margin: 10px 0 0 2px" class="titlelabels"> Add a Row: </label></td>
+                <td><select style="width: 100%;" id="optionspanelfrontrowsnumber"></select></td>
+                <td><button style="border-radius: 5px; padding: 5px 10px; width: 100%;" onclick="addrowbuttonclick()">Add Row</button><br></td>
+            </tr>
+            <tr>
+                <td><label class="titlelabels"> Add Column: </label></td>
+                <td><select style="width: 100%;" id="optionspanelfrontaddcolumnsnumber"></select></td>
+                <td><button style="border-radius: 5px; padding: 5px 10px; width: 100%;" onclick="addcolumnbuttonclick()">Add Column</button></td>
+            </tr>
+            <tr>
+                <td><label class="titlelabels"> Delete Column: </label></td>
+                <td><select style="width: 100%;" id="optionspanelfrontdeletecolumnsnumber"></select></td>
+                <td><button style="border-radius: 5px; padding: 5px 10px; width: 100%;" onclick="deletecolumnbuttonclick()">Delete Column</button></td>
+            </tr>
+            <tr>
+                <td><label class="titlelabels"> Add Columns Sum: </label></td>
+                <td><select style="width: 100%;" id="optionspanelfrontcolumnsnumber"></select></td>
+                <td><button style="border-radius: 5px; padding: 5px 10px; width: 100%;" onclick="addsumcolumnsbuttonclick()">Add Columns Sum</button></td>
+            </tr>
+        </table>
+    </div>
+    <div id="processDiv">
+        <label id="processinglabel">Processing</label>
+    </div>
+    <script src="../src/scripts/index.js"></script>
+    <!-- <script src="../src/scripts/panelopenclose.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+.headtable{
+    background: linear-gradient(180deg, rgb(141, 67, 33),rgb(197, 99, 53));
+    font-weight: bold;
+}
+
+#tableDiv{
+    margin-top: 50px;
+    width: 100%;
+    height: calc(100vh - 116px);
+    overflow: auto;
+}
+
+#sheettable tr,
+#filtertable tr{
+    background: linear-gradient(180deg, rgb(226, 135, 93),rgb(243, 175, 143));
+}
+
+#sheettable tr:hover{
+    cursor: pointer;
+    background: linear-gradient(rgb(177, 87, 45),rgb(201, 94, 44));
+    color: aliceblue;
+}
+
+#sheettable td,
+#filtertable td{
+    padding: 5px;
+}
+
+#sheettable td:hover{
+    background: linear-gradient(rgb(78, 35, 15),rgb(139, 50, 9));
+}
+
+#filtertableDiv{
+    height: calc(100% - 72px);
+    overflow: auto;
+    padding: 10px;
+}

@@ -1,0 +1,93 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'electron',
+1 verbose cli   '--save-dev',
+1 verbose cli   '[--save-exact]' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData electron@^4.0.1
+8 silly fetchPackageMetaData [--save-exact]
+9 silly fetchNamedPackageData electron
+10 silly mapToRegistry name electron
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry uri https://registry.npmjs.org/electron
+14 silly fetchOtherPackageData [--save-exact]
+15 silly cache add args [ '[--save-exact]', null ]
+16 verbose cache add spec [--save-exact]
+17 silly cache add parsed spec Result {
+17 silly cache add   raw: '[--save-exact]',
+17 silly cache add   scope: null,
+17 silly cache add   name: null,
+17 silly cache add   rawSpec: '[--save-exact]',
+17 silly cache add   spec: '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]',
+17 silly cache add   type: 'local' }
+18 error addLocal Could not install /media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]
+19 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]'
+19 silly fetchPackageMetaData  error for [--save-exact] { Error: ENOENT: no such file or directory, open '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]'
+19 silly fetchPackageMetaData   errno: -2,
+19 silly fetchPackageMetaData   code: 'ENOENT',
+19 silly fetchPackageMetaData   syscall: 'open',
+19 silly fetchPackageMetaData   path: '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]' }
+20 verbose request uri https://registry.npmjs.org/electron
+21 verbose request no auth needed
+22 info attempt registry request try #1 at 7:13:17 PM
+23 verbose request id ba6bfc103ec77766
+24 verbose etag W/"49a30a8d64b09b38bc5c57e7010c096f"
+25 verbose lastModified Mon, 07 Jan 2019 18:48:12 GMT
+26 http request GET https://registry.npmjs.org/electron
+27 http 304 https://registry.npmjs.org/electron
+28 verbose headers { date: 'Mon, 14 Jan 2019 14:13:18 GMT',
+28 verbose headers   connection: 'keep-alive',
+28 verbose headers   'set-cookie':
+28 verbose headers    [ '__cfduid=d391bff9156de91796d806d93ad6ce7ea1547475198; expires=Tue, 14-Jan-20 14:13:18 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+28 verbose headers   'cf-cache-status': 'HIT',
+28 verbose headers   'cache-control': 'max-age=300',
+28 verbose headers   'cf-ray': '4990b3d82b3ac35b-SIN',
+28 verbose headers   etag: '"49a30a8d64b09b38bc5c57e7010c096f"',
+28 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+28 verbose headers   'last-modified': 'Mon, 07 Jan 2019 18:48:12 GMT',
+28 verbose headers   vary: 'accept-encoding, accept',
+28 verbose headers   'x-amz-meta-rev': '428-c403f4ad360ef8478015d373d80789ac',
+28 verbose headers   server: 'cloudflare' }
+29 silly get cb [ 304,
+29 silly get   { date: 'Mon, 14 Jan 2019 14:13:18 GMT',
+29 silly get     connection: 'keep-alive',
+29 silly get     'set-cookie':
+29 silly get      [ '__cfduid=d391bff9156de91796d806d93ad6ce7ea1547475198; expires=Tue, 14-Jan-20 14:13:18 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+29 silly get     'cf-cache-status': 'HIT',
+29 silly get     'cache-control': 'max-age=300',
+29 silly get     'cf-ray': '4990b3d82b3ac35b-SIN',
+29 silly get     etag: '"49a30a8d64b09b38bc5c57e7010c096f"',
+29 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+29 silly get     'last-modified': 'Mon, 07 Jan 2019 18:48:12 GMT',
+29 silly get     vary: 'accept-encoding, accept',
+29 silly get     'x-amz-meta-rev': '428-c403f4ad360ef8478015d373d80789ac',
+29 silly get     server: 'cloudflare' } ]
+30 verbose etag https://registry.npmjs.org/electron from cache
+31 verbose get saving electron to /home/hash/.npm/registry.npmjs.org/electron/.cache.json
+32 silly rollbackFailedOptional Starting
+33 silly rollbackFailedOptional Finishing
+34 silly runTopLevelLifecycles Starting
+35 silly runTopLevelLifecycles Finishing
+36 silly install printInstalled
+37 verbose stack Error: ENOENT: no such file or directory, open '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]'
+38 verbose cwd /media/hash/CEBA-5421/Coding/Electron/Roxmen
+39 error Linux 4.15.0-29-generic
+40 error argv "/usr/bin/node" "/usr/bin/npm" "install" "electron" "--save-dev" "[--save-exact]"
+41 error node v8.10.0
+42 error npm  v3.5.2
+43 error path /media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]
+44 error code ENOENT
+45 error errno -2
+46 error syscall open
+47 error enoent ENOENT: no such file or directory, open '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]'
+48 error enoent ENOENT: no such file or directory, open '/media/hash/CEBA-5421/Coding/Electron/Roxmen/[--save-exact]'
+48 error enoent This is most likely not a problem with npm itself
+48 error enoent and is related to npm not being able to find a file.
+49 verbose exit [ -2, true ]
