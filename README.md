@@ -1,0 +1,1 @@
+Excel reader is an Electron app 1.1. Which reads excel files and GUI. also there some sevral functionality to manipulte different rows and columns like multiple text replaces etc. also some adittional features.
